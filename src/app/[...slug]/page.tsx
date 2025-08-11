@@ -10,7 +10,12 @@ import MdxRenderer from "@/components/MdxRenderer"
 const CONTENT_ROOT = path.join(process.cwd(), "content")
 
 function findDocRoot(filePath: string): string | null {
-  let dir = path.dirname(filePath)
+  const ext = path.extname(filePath)
+  const base = path.basename(filePath, ext)
+  if (ext === ".md" && base !== "index") {
+    return path.join(path.dirname(filePath), base)
+  }
+  let dir =  path.dirname(filePath)
   while (dir.startsWith(CONTENT_ROOT)) {
     const indexPath = path.join(dir, "index.md")
     if (fs.existsSync(indexPath)) {
@@ -21,6 +26,7 @@ function findDocRoot(filePath: string): string | null {
     const parentDir = path.dirname(dir)
     if (parentDir === dir) break
     dir = parentDir
+    console.log()
   }
   return null
 }

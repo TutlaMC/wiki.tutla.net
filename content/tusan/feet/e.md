@@ -7,3 +7,9 @@ isdoc: true
 ---
 
 weebs
+
+# feet r cool
+> ik ik
+**bold**
+
+*e*
