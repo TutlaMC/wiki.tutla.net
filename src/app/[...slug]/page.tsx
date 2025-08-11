@@ -51,7 +51,6 @@ export default async function WikiPage({ params }: { params: Promise<{ slug?: st
   const docRoot = isDoc ? findDocRoot(filePath) : null
   let docsTree = null
   if (docRoot) {
-    // Read docs tree only for the current documentation root directory
     docsTree = readDocsDir(docRoot)
   }
 
