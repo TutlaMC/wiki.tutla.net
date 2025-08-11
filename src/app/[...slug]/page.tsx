@@ -57,6 +57,7 @@ export default async function WikiPage({ params }: { params: Promise<{ slug?: st
   return (
     <div className="flex min-h-screen bg-[#151a21] text-[#c9d1d9]">
       <LeftSidebar
+        title={String(data.title)}
         docsTree={docsTree}
         currentPath={filePath}
         isDoc={isDoc}

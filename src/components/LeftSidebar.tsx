@@ -6,7 +6,7 @@ import { DocNode } from "@/lib/docs"
 
 interface LeftSidebarProps {
   title: string
-  docsTree: DocNode[]
+  docsTree?: DocNode[] | null
   currentPath: string
   isDoc: boolean
   headings?: { text: string; level: number }[]
@@ -59,7 +59,7 @@ export default function LeftSidebar({ docsTree, currentPath, isDoc, headings, ti
   if (isDoc) {
     return (
       <nav className="sticky top-0 max-h-screen overflow-y-auto p-4 border-r border-gray-700 w-60">
-        <DocTreeNode node={{ name: title, path: "", isDir: true, children: docsTree }} currentPath={currentPath} />
+        <DocTreeNode node={{ name: title, path: "", isDir: true, children: docsTree || undefined }} currentPath={currentPath} />
       </nav>
     )
   }

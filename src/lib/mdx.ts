@@ -3,15 +3,16 @@ import remarkGfm from "remark-gfm"
 import remarkDeflist from "remark-deflist"
 import rehypePrettyCode from "rehype-pretty-code"
 import { visit } from "unist-util-visit"
+import type { Root,  Heading, Text } from "mdast"
 
 export async function getMdxSource(content: string) {
   const headings: { text: string; level: number }[] = []
 
-  const remarkCollectHeadings = () => (tree: any) => {
-    visit(tree, "heading", (node) => {
+  const remarkCollectHeadings = () => (tree: Root) => {
+    visit(tree, "heading", (node: Heading) => {
       const text = node.children
-        .filter((child: any) => child.type === "text")
-        .map((child: any) => child.value)
+        .filter((child): child is Text => child.type === "text")
+        .map((child) => child.value)
         .join("")
       headings.push({ text, level: node.depth })
     })
