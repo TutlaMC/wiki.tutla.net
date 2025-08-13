@@ -6,4 +6,4 @@ updated: "2025-08-10"
 isdoc: true
 ---
 
-too powerful
+i need the commit lol
