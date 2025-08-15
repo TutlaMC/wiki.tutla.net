@@ -2,7 +2,7 @@ import fs from "fs"
 import path from "path"
 import matter from "gray-matter"
 import { getMdxSource } from "@/lib/mdx"
-import { readDocsDir } from "@/lib/docs"
+import { readDocsDir, generateDocsUsingContents } from "@/lib/docs"
 import LeftSidebar from "@/components/LeftSidebar"
 import RightSidebar from "@/components/RightSidebar"
 import MdxRenderer from "@/components/MdxRenderer"
@@ -19,6 +19,9 @@ function getDocName(filePath: string) {
 }
 
 function findDocRoot(filePath: string): string | null {
+  if (filePath.endsWith(".md")){
+    filePath = filePath.slice(0, -3)
+  }
   let dir = path.join(CONTENT_ROOT, getDocName(filePath))
   const indexPath = path.join(dir, "index.md")
   if (fs.existsSync(indexPath)) {
@@ -54,7 +57,10 @@ export default async function WikiPage({ params }: { params: Promise<{ slug?: st
 
   const docRoot = isDoc ? findDocRoot(filePath) : null
   let docsTree = null
-  if (docRoot) {
+  if (fs.existsSync(path.join(CONTENT_ROOT, slugParts[0], "sidebar.json"))){
+    docsTree = generateDocsUsingContents(JSON.parse(fs.readFileSync(path.join(CONTENT_ROOT, slugParts[0], "sidebar.json"), "utf8")))
+    
+  } else if (docRoot) {
     docsTree = readDocsDir(docRoot)
   }
 

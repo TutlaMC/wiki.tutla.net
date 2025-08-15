@@ -27,3 +27,24 @@ export function readDocsDir(dirPath = CONTENT_ROOT): DocNode[] {
   }
   return result
 }
+
+export function generateDocsUsingContents(sidebarContents: Record<string, unknown>): DocNode[] {
+  const result: DocNode[] = []
+  for (const [key, value] of Object.entries(sidebarContents)) {
+    if (typeof value === "object" && value !== null) {
+      result.push({
+        name: key,
+        path: key,
+        isDir: true,
+        children: generateDocsUsingContents(value as Record<string, unknown>)
+      })
+    } else if (typeof value === "string") {
+      result.push({
+        name: key,
+        path: value,
+        isDir: false
+      })
+    }
+  }
+  return result
+}
