@@ -22,7 +22,7 @@ function findDocRoot(filePath: string): string | null {
   if (filePath.endsWith(".md")){
     filePath = filePath.slice(0, -3)
   }
-  let dir = path.join(CONTENT_ROOT, getDocName(filePath))
+  const dir = path.join(CONTENT_ROOT, getDocName(filePath))
   const indexPath = path.join(dir, "index.md")
   if (fs.existsSync(indexPath)) {
     const indexContent = fs.readFileSync(indexPath, "utf8")
