@@ -1,6 +1,6 @@
 ---
 title: "ehan"
-summary: "ehan is a gay dumbass"
+summary: "ehan is a dumb"
 created: "2025-08-15"
 updated: "2025-08-15"
 isdoc: false
