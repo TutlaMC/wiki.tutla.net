@@ -53,7 +53,6 @@ export default async function WikiPage({ params }: { params: Promise<{ slug?: st
   const { mdxSource, headings } = await getMdxSource(content)
 
   const docRoot = isDoc ? findDocRoot(filePath) : null
-  console.log(docRoot, "e")
   let docsTree = null
   if (docRoot) {
     docsTree = readDocsDir(docRoot)
@@ -75,7 +74,7 @@ export default async function WikiPage({ params }: { params: Promise<{ slug?: st
           <MdxRenderer mdxSource={mdxSource} />
         </article>
       </main>
-      <RightSidebar />
+      <RightSidebar data={data} />
     </div>
   )
 }
