@@ -9,24 +9,22 @@ import MdxRenderer from "@/components/MdxRenderer"
 
 const CONTENT_ROOT = path.join(process.cwd(), "content")
 
-function findDocRoot(filePath: string): string | null {
-  const ext = path.extname(filePath)
-  const base = path.basename(filePath, ext)
-  if (ext === ".md" && base !== "index") {
-    return path.join(path.dirname(filePath), base)
-  }
-  let dir =  path.dirname(filePath)
-  while (dir.startsWith(CONTENT_ROOT)) {
-    const indexPath = path.join(dir, "index.md")
-    if (fs.existsSync(indexPath)) {
-      const indexContent = fs.readFileSync(indexPath, "utf8")
-      const { data } = matter(indexContent)
-      if (data.isdoc) return dir
+function getDocName(filePath: string) {
+    const parts = filePath.split(path.sep);
+    const contentIndex = parts.indexOf("content");
+    if (contentIndex !== -1 && parts.length > contentIndex + 1) {
+        return parts[contentIndex + 1];
     }
-    const parentDir = path.dirname(dir)
-    if (parentDir === dir) break
-    dir = parentDir
-    console.log()
+    return "";
+}
+
+function findDocRoot(filePath: string): string | null {
+  let dir = path.join(CONTENT_ROOT, getDocName(filePath))
+  const indexPath = path.join(dir, "index.md")
+  if (fs.existsSync(indexPath)) {
+    const indexContent = fs.readFileSync(indexPath, "utf8")
+    const { data } = matter(indexContent)
+    if (data.isdoc) return dir
   }
   return null
 }
@@ -55,6 +53,7 @@ export default async function WikiPage({ params }: { params: Promise<{ slug?: st
   const { mdxSource, headings } = await getMdxSource(content)
 
   const docRoot = isDoc ? findDocRoot(filePath) : null
+  console.log(docRoot, "e")
   let docsTree = null
   if (docRoot) {
     docsTree = readDocsDir(docRoot)

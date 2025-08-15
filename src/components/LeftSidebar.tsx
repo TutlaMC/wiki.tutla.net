@@ -17,7 +17,6 @@ function slugify(text: string) {
 }
 
 function toSlug(fullPath: string) {
-  // Remove content root path and .md extension
   return "/" + fullPath.replace(/\\/g, "/").replace(/.*content/, "").replace(/\.md$/, "")
 }
 
@@ -25,16 +24,24 @@ function DocTreeNode({ node, currentPath }: { node: DocNode; currentPath: string
   const isActive = node.path === currentPath
   const isParent = currentPath.startsWith(node.path)
 
-  const [open, setOpen] = useState(isParent)
+  const [origin, setOrigin] = useState("https://wiki.tutla.net") // default
 
   useEffect(() => {
-    setOpen(isParent)
-  }, [isParent])
+    if (typeof window !== "undefined") {
+      setOrigin(window.location.protocol + "//" + window.location.host)
+    }
+  }, [])
+
+  const [open, setOpen] = useState(isParent)
+  useEffect(() => setOpen(isParent), [isParent])
 
   if (node.isDir && node.children) {
     return (
       <div>
-        <button onClick={() => setOpen(!open)} className={`font-bold ${open ? "text-blue-400" : ""}`}>
+        <button
+          onClick={() => setOpen(!open)}
+          className={`font-bold ${open ? "text-blue-400" : ""}`}
+        >
           {node.name}
         </button>
         {open && (
@@ -50,7 +57,7 @@ function DocTreeNode({ node, currentPath }: { node: DocNode; currentPath: string
 
   return (
     <div className={isActive ? "text-blue-500 font-semibold" : ""}>
-      <Link href={toSlug(node.path)}>{node.name}</Link>
+      <Link href={origin + toSlug(node.path)}>{node.name}</Link>
     </div>
   )
 }
