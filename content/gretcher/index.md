@@ -8,6 +8,7 @@ isdoc: true
 
 A Gretcher is a slur used within the Tyler Vitelli Discord server & several Discord Communnities that refer to members who hold the green-colored role. The term first appeared on August 16, 2025, as a portmanteau of "green" and "retching". It also refers to people who attention seek in Discord Servers.
 
+> Gretchers is hating against the greens who come in and annoy everyone (the ones spamming, sluring, ragebaiting, underaged, like the ones that will never make it past being a gretcher)
 
 ## Usage and Culture
 
