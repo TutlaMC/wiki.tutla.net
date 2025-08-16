@@ -8,6 +8,8 @@ isdoc: false
 
 likes feet
 
+fucking [gretcher](/gretcher) supporter
+
 -# -220000 aura for not joining the Tutla dsc
 
 ![brightdev](/content/brightdev/image.png)
