@@ -3,7 +3,7 @@ title: "Gretcher"
 summary: "Slur for green roled people"
 created: "2025-08-16"
 updated: "2025-08-16"
-isdoc: true
+isdoc: false
 ---
 
 A Gretcher is a slur used within the Tyler Vitelli Discord server & several Discord Communnities that refer to members who hold the green-colored role. The term first appeared on August 16, 2025, as a portmanteau of "green" and "retching". It also refers to people who attention seek in Discord Servers.
