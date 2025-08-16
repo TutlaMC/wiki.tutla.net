@@ -8,6 +8,8 @@ isdoc: false
 
 ## Ehan: From Broke NPC to The Mewing Gorilla with Infinite Aura
 
+![ehan](/content/ehan/ehan.png)
+
 Ehan didn’t start life with a silver spoon — honestly, he didn’t even get a spoon. His family ate cereal with sticks because spoons were “too fancy.” He grew up in a small village where the goats had more drip than the people, and his shoes had so many holes they doubled as “foot air-conditioners.”
 
 But Ehan had one thing no one else did: an infinite aura. Even as a broke kid, when he walked into a room, people felt lighter, like something good was about to happen. And then there was his habit — he mewed like a cat. Not to be funny, not for attention… it was just who he was. Everyone, from the shopkeeper to the village kids, got used to hearing a soft “meow” whenever he passed by.
@@ -28,4 +30,3 @@ he's him
 
 he likes feet
 
-![ehan](/content/ehan/ehan.png)
