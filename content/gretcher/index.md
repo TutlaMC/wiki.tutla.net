@@ -36,3 +36,8 @@ Within the server, "gretcher" is most commonly used in:
 ---
 
 The term "gretcher" originated on August 16, 2025, during a conversation in the Tlyer Vitelli Discord server. A member combined the word green (referencing the role color) with retching (a joking insult), creating the term. Within hours, it spread across channels in the server and became shorthand for poking fun at green-role users.
+
+## Credits
+
+- **TutlaMC & imalice** for coining the term
+- **@aura** for popularising it into popular culture
