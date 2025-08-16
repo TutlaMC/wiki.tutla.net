@@ -6,6 +6,8 @@ import { readDocsDir, generateDocsUsingContents } from "@/lib/docs"
 import LeftSidebar from "@/components/LeftSidebar"
 import RightSidebar from "@/components/RightSidebar"
 import MdxRenderer from "@/components/MdxRenderer"
+import Navbar from "@/components/Navbar"
+
 
 const CONTENT_ROOT = path.join(process.cwd(), "content")
 
@@ -65,22 +67,33 @@ export default async function WikiPage({ params }: { params: Promise<{ slug?: st
   }
 
   return (
-    <div className="flex min-h-screen bg-[#151a21] text-[#c9d1d9]">
-      <LeftSidebar
-        title={String(data.title)}
-        docsTree={docsTree}
-        currentPath={filePath}
-        isDoc={isDoc}
-        headings={headings}
-      />
+    <div>
+      <Navbar title={String(data.title)}
+          docsTree={docsTree}
+          currentPath={filePath}
+          isDoc={isDoc}
+          headings={headings}></Navbar>
+      <div className="flex min-h-screen bg-[#151a21] text-[#c9d1d9]">
+      <div className="hidden md:block">
+        <LeftSidebar
+          title={String(data.title)}
+          docsTree={docsTree}
+          currentPath={filePath}
+          isDoc={isDoc}
+          headings={headings}
+        />
+      </div>
+
       <main className="flex-1 max-w-4xl mx-auto p-6">
         <h1 className="mb-2 text-5xl font-bold">{data.title}</h1>
-        <hr className="mb-6"></hr>
+        <hr className="mb-6" />
         <article className="prose prose-invert max-w-none">
           <MdxRenderer mdxSource={mdxSource} />
         </article>
       </main>
+
       <RightSidebar data={data} />
     </div>
+  </div>
   )
 }
