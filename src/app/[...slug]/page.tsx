@@ -34,10 +34,10 @@ function findDocRoot(filePath: string): string | null {
   return null
 }
 
-
 export default async function WikiPage({ params }: { params: Promise<{ slug?: string[] }> }) {
   const resolvedParams = await params
-  const slugParts = resolvedParams.slug ?? ["index"]
+  let slugParts = resolvedParams.slug ?? ["index"]
+  slugParts = slugParts.map((s) => s.toLowerCase())
   const filePath = path.join(CONTENT_ROOT, ...slugParts) + ".md"
 
   let fileContent = ""

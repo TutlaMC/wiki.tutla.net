@@ -4,7 +4,7 @@ import Link from "next/link"
 import { useState, useEffect } from "react"
 import { DocNode } from "@/lib/docs"
 
-interface LeftSidebarProps {
+export interface LeftSidebarProps {
   title: string
   docsTree?: DocNode[] | null
   currentPath: string

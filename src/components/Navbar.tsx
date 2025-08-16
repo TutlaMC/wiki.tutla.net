@@ -1,10 +1,10 @@
 "use client"
 
-import Link from "next/link"
 import Search from "./Search"
 import MobileSidebar from "./MobileSidebar"
+import type { LeftSidebarProps } from "./LeftSidebar"
 
-export default function Navbar(props: any) {
+export default function Navbar(props: LeftSidebarProps) {
   return (
     <nav className="w-full bg-gray-900 text-white px-6 py-3 flex items-center justify-between">
       <div className="flex items-center space-x-2">
@@ -12,7 +12,7 @@ export default function Navbar(props: any) {
         <div className="font-bold text-xl">Tutla Wiki</div>
       </div>
       <div className="space-x-4">
-        <Search></Search>
+        <Search />
       </div>
     </nav>
   )

@@ -3,8 +3,9 @@
 import { useState } from "react"
 import { X, Menu } from "lucide-react"
 import LeftSidebar from "./LeftSidebar"
+import type { LeftSidebarProps } from "./LeftSidebar"
 
-export default function MobileSidebar(props: any) {
+export default function MobileSidebar(props: LeftSidebarProps) {
   const [open, setOpen] = useState(false)
 
   return (
@@ -27,10 +28,7 @@ export default function MobileSidebar(props: any) {
             </button>
             <LeftSidebar {...props} />
           </div>
-          <div
-            className="flex-1"
-            onClick={() => setOpen(false)}
-          />
+          <div className="flex-1" onClick={() => setOpen(false)} />
         </div>
       )}
     </>
