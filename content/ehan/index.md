@@ -1,16 +1,10 @@
 ---
 title: "ehan"
-summary: "ehan is a dumb"
+summary: "ehan is a dumbass"
 created: "2025-08-15"
 updated: "2025-08-15"
 isdoc: false
 ---
-
-he's him
-
-he likes feet
-
-![ehan](/content/ehan/ehan.png)
 
 ## Ehan: From Broke NPC to The Mewing Gorilla with Infinite Aura
 
@@ -27,3 +21,11 @@ Years later, a Hollywood director spotted him and said, “This man isn’t pret
 Now, Ehan’s life is a mix of luxury and chaos. One moment he’s sitting in a penthouse sipping sparkling water, mewing softly. The next, he’s on set in full gorilla mode, sending the crowd into wild applause.
 
 Ehan’s journey from broke village kid to the world’s richest mewing gorilla isn’t just about money — it’s proof that being unapologetically yourself is the real cheat code in life.
+
+## About
+
+he's him
+
+he likes feet
+
+![ehan](/content/ehan/ehan.png)
