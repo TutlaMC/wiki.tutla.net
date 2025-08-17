@@ -68,8 +68,7 @@ With this uprising Zydro had many in his side including prominent members such a
 
 > 7: Claiming High Accomplishments: He has said after this message that he has done more than me but that is easily debunkable by how long he has been in the staff team which was barely anything and also me working for an average of 5-8 hours a day for 45 days straight. He says that we have not treated him well enough for the amount of work he has done but i don't think so. I have screamed in his DMs which i am definetly sorry for but the intent was not bad, as i claimed earlier in this massive post that i have an issue that no one wants to believe. I have problems with temper but i am seriously trying to fix it, then he starts comparing me to Lucas which i swore to never copy and i took him down for a reason with aaron. I am taking responsibility for saying the N word multiple times though thou i am sorry, still in a young age and being influenced by others is a real thing. Again, i am 14. Not trying to play the victim card, it is definetly my fault for saying it but i did not say it in any racial manner at all regarding how he looks like or where he comes from as he even listed in the screenshots of his evidence of saying the N word. Screaming in his DMs with caps went a bit overboard aswell, i can agree but Soldier went to zydros DMs in a sarcastic way saying in quotations "I'm scared", he confirmed himself that it was satire and zydro went too far with what he did.
 
-
-
+Shade's position on this server was solidified after this event after many memebers backed him.
 
 ## Contribution to Tutla Studios
 ---
