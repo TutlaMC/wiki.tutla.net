@@ -81,3 +81,4 @@ Shade is responsible for the creation of Tusk & Tusan. Thanks to shade, Tutla St
 - **2019**: Joined Discord (canon event)
 - **September 22, 2024:** Joined the Tyler Vitelli Discord on 
 - Became the owner of Tyler Vitelli's Discord about 2 months in
+- **August 5, 2025:** Became Co-Owner of Tutla Studios
