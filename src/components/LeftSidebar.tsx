@@ -3,6 +3,7 @@
 import Link from "next/link"
 import { useState, useEffect } from "react"
 import { DocNode } from "@/lib/docs"
+import { HomeIcon, LucideIcon } from "lucide-react"
 
 export interface LeftSidebarProps {
   title: string
@@ -20,7 +21,7 @@ function toSlug(fullPath: string) {
   return "/" + fullPath.replace(/\\/g, "/").replace(/.*content/, "").replace(/\.md$/, "")
 }
 
-function DocTreeNode({ node, currentPath }: { node: DocNode; currentPath: string }) {
+function DocTreeNode({ node, currentPath, className="", Icon=null }: { node: DocNode; currentPath: string; className?: string; Icon?: LucideIcon|null }) {
   const isActive = node.path === currentPath
   const isParent = currentPath.startsWith(node.path)
 
@@ -38,14 +39,17 @@ function DocTreeNode({ node, currentPath }: { node: DocNode; currentPath: string
   if (node.isDir && node.children) {
     return (
       <div>
-        <button
-          onClick={() => setOpen(!open)}
-          className={`font-bold ${open ? "text-blue-400" : ""}`}
-        >
-          {node.name}
-        </button>
+        <span className="flex items-center space-x-2">
+          {Icon && <Icon size={16} />}
+          <button
+            onClick={() => setOpen(!open)}
+            className={`font-bold ${className}`}
+          >
+            {node.name}
+          </button>
+        </span>        
         {open && (
-          <div className="ml-4 border-l border-gray-700 pl-2">
+          <div className="ml-4 pl-2">
             {node.children.map((child) => (
               <DocTreeNode key={child.path} node={child} currentPath={currentPath} />
             ))}
@@ -66,7 +70,7 @@ export default function LeftSidebar({ docsTree, currentPath, isDoc, headings, ti
   if (isDoc) {
     return (
       <nav className="sticky top-0 max-h-screen overflow-y-auto p-4 border-r border-gray-700 w-60">
-        <DocTreeNode node={{ name: title, path: "", isDir: true, children: docsTree || undefined }} currentPath={currentPath} />
+        <DocTreeNode className="" Icon={HomeIcon} node={{ name: title, path: "", isDir: true, children: docsTree || undefined }} currentPath={currentPath} />
       </nav>
     )
   }

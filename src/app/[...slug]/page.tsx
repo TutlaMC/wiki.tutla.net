@@ -85,8 +85,7 @@ export default async function WikiPage({ params }: { params: Promise<{ slug?: st
       </div>
 
       <main className="flex-1 max-w-4xl mx-auto p-6">
-        <h1 className="mb-2 text-5xl font-bold">{data.title}</h1>
-        <hr className="mb-6" />
+        <h1 className="mb-6 text-5xl font-bold">{data.title}</h1>
         <article className="prose prose-invert max-w-none">
           <MdxRenderer mdxSource={mdxSource} />
         </article>
