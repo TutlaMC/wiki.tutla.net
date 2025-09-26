@@ -3,7 +3,7 @@
 import Link from "next/link"
 import { useState, useEffect } from "react"
 import { DocNode } from "@/lib/docs"
-import { HomeIcon, LucideIcon } from "lucide-react"
+import { ArrowBigDown, ArrowDown, ArrowDownWideNarrow, ArrowUpFromDot, HomeIcon, LucideIcon } from "lucide-react"
 
 export interface LeftSidebarProps {
   title: string
@@ -39,22 +39,22 @@ function DocTreeNode({ node, currentPath, className="", Icon=null }: { node: Doc
   if (node.isDir && node.children) {
     return (
       <div>
-        <span className="flex items-center space-x-2 px-2 py-1 hover:bg-gray-800 rounded">
+        <span className="flex items-center space-x-2 px-2 py-1 hover:bg-gray-800 rounded font-bold ${className}" onClick={() => setOpen(!open)}>
           {Icon && <Icon size={16} />}
-          <button
-            onClick={() => setOpen(!open)}
-            className={`font-bold ${className}`}
-          >
-            {node.name}
-          </button>
+          <span className="flex justify-between items-center w-full">
+            <span>{node.name}</span>
+            {open ? <ArrowUpFromDot size={16}></ArrowUpFromDot> : <ArrowDownWideNarrow size={16}></ArrowDownWideNarrow>}
+          </span>
         </span>        
-        {open && (
-          <div className="ml-4 pl-2">
-            {node.children.map((child) => (
-              <DocTreeNode key={child.path} node={child} currentPath={currentPath} />
-            ))}
-          </div>
-        )}
+        <div
+          className={`ml-4 pl-2 overflow-hidden transition-all duration-300 ${
+            open ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
+          }`}
+        >
+          {node.children.map((child) => (
+            <DocTreeNode key={child.path} node={child} currentPath={currentPath} />
+          ))}
+        </div>
       </div>
     )
   }
@@ -69,7 +69,7 @@ function DocTreeNode({ node, currentPath, className="", Icon=null }: { node: Doc
 export default function LeftSidebar({ docsTree, currentPath, isDoc, headings, title }: LeftSidebarProps) {
   if (isDoc) {
     return (
-      <nav className="sticky top-0 max-h-screen overflow-y-auto p-4 border-r border-gray-700 w-60">
+      <nav className="sticky top-0 h-screen max-h-screen overflow-y-auto p-4 border-r border-gray-700 w-60">
         <DocTreeNode className="" Icon={HomeIcon} node={{ name: title, path: "", isDir: true, children: docsTree || undefined }} currentPath={currentPath} />
       </nav>
     )
@@ -77,7 +77,8 @@ export default function LeftSidebar({ docsTree, currentPath, isDoc, headings, ti
 
   if (headings) {
     return (
-      <nav className="sticky top-0 max-h-screen overflow-y-auto p-4 border-r border-gray-700 w-60">
+      <nav className="sticky top-0 h-screen max-h-screen overflow-y-auto p-4 border-r border-gray-700 w-60">
+        
         <h2 className="font-bold mb-2">Contents</h2>
         <ul>
           {headings.map((h, i) => (
