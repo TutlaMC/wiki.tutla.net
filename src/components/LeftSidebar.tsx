@@ -3,7 +3,7 @@
 import Link from "next/link"
 import { useState, useEffect } from "react"
 import { DocNode } from "@/lib/docs"
-import { ArrowBigDown, ArrowDown, ArrowDownWideNarrow, ArrowUpFromDot, HomeIcon, LucideIcon } from "lucide-react"
+import { ArrowDownWideNarrow, ArrowUpFromDot, HomeIcon, LucideIcon } from "lucide-react"
 
 export interface LeftSidebarProps {
   title: string
