@@ -2,14 +2,46 @@ import fs from "fs"
 import path from "path"
 import matter from "gray-matter"
 import { getMdxSource } from "@/lib/mdx"
-import { readDocsDir, generateDocsUsingContents } from "@/lib/docs"
+import { readDocsDir, generateDocsUsingContents, DocNode } from "@/lib/docs"
 import LeftSidebar from "@/components/LeftSidebar"
 import RightSidebar from "@/components/RightSidebar"
 import MdxRenderer from "@/components/MdxRenderer"
 import Navbar from "@/components/Navbar"
-
+import { Edit2 } from "lucide-react"
 
 const CONTENT_ROOT = path.join(process.cwd(), "content")
+
+export async function generateMetadata({ params }: { params: { slug?: string[] } }) {
+  params = await params
+  const slugParts = params.slug ?? ["index"]
+  const filePath = path.join(CONTENT_ROOT, ...slugParts) + ".md"
+
+  if (!fs.existsSync(filePath)) return {}
+
+  const fileContent = fs.readFileSync(filePath, "utf8")
+  const { data } = matter(fileContent)
+
+  const canonicalUrl = `https://wiki.tutla.net/${slugParts.join("/")}`
+
+  return {
+    title: data.title || "Tutla Wiki",
+    description: data.summary || "Tutla Wiki",
+    alternates: {
+      canonical: canonicalUrl,
+    },
+    openGraph: {
+      title: data.title,
+      description: data.summary,
+      url: canonicalUrl,
+      type: "article",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: data.title,
+      description: data.summary,
+    },
+  }
+}
 
 function getDocName(filePath: string) {
     const parts = filePath.split(path.sep);
@@ -56,7 +88,11 @@ export default async function WikiPage({ params }: { params: Promise<{ slug?: st
   const isDoc = Boolean(data.isdoc)
 
   const { mdxSource, headings } = await getMdxSource(content)
-
+  let realpeth = filePath
+  if (filePath.startsWith(CONTENT_ROOT) && path.dirname(filePath) === CONTENT_ROOT) {
+      const name = path.basename(filePath, ".md")
+      realpeth = path.join("content", name, "index.md")
+  }
   const docRoot = isDoc ? findDocRoot(filePath) : null
   let docsTree = null
   if (fs.existsSync(path.join(CONTENT_ROOT, slugParts[0], "sidebar.json"))){
@@ -89,10 +125,24 @@ export default async function WikiPage({ params }: { params: Promise<{ slug?: st
         <article className="prose prose-invert max-w-none">
           <MdxRenderer mdxSource={mdxSource} />
         </article>
+        <div className="mt-6">
+          <hr></hr>
+          <a href={`https://github.com/TutlaMC/wiki.tutla.net/tree/main/${realpeth}`} className="mt-6 flex items-center font-extrabold space-x-2 text-blue-400 text-xl hover:underline"><Edit2 className="mr-2"></Edit2> Edit this page</a>
+        </div>
       </main>
 
       <RightSidebar data={data} />
     </div>
+    {/* idk chatgpt told me to put ts */} <script 
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": data.title,
+        "description": data.summary,
+        "url": `https://wiki.tutla.net/${slugParts.join("/")}`
+      }) }}
+    /> 
   </div>
   )
 }

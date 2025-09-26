@@ -1,6 +1,6 @@
 {
-    "gomma": "e",
-    "Gyatts": {
-        "ee": "ee"
+    "Nodes": "/tusan/nodes",
+    "Syntax": {
+        "Expressions": "/tusan/syntax/expressions"
     }
 }

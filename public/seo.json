@@ -1,0 +1,65 @@
+[
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "BrightDev",
+    "description": "feetlover25",
+    "url": "https://wiki.tutla.net/brightdev"
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "ehan",
+    "description": "ehan is a dumbass",
+    "url": "https://wiki.tutla.net/ehan"
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Gretcher",
+    "description": "Slur for green roled people",
+    "url": "https://wiki.tutla.net/gretcher"
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "onion ring",
+    "description": "onion rings",
+    "url": "https://wiki.tutla.net/onion_ring"
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Shade",
+    "description": "Co Owner of Tutla Studios",
+    "url": "https://wiki.tutla.net/shade"
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Tusan",
+    "description": "Tusan is a library for making interpreters and simple compilers",
+    "url": "https://wiki.tutla.net/tusan"
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Tusan",
+    "description": "Tusan is a library for making interpreters and simple compilers",
+    "url": "https://wiki.tutla.net/tusan/syntax/expressions"
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Tutla wiki",
+    "description": "weki",
+    "url": "https://wiki.tutla.net/tutla_wiki"
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "TutlaMC",
+    "description": "weki",
+    "url": "https://wiki.tutla.net/tutlamc"
+  }
+]
