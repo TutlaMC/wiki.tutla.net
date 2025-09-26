@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev --turbopack",
-    "build": "next build",
+    "build": "next build && npx ts-node scripts/generate-sitemap.ts",
     "start": "next start -p 3000",
     "lint": "next lint"
   },
@@ -25,7 +25,8 @@
     "remark": "^15.0.1",
     "remark-deflist": "^1.0.0",
     "remark-gfm": "^4.0.1",
-    "shiki": "^2.0.0"
+    "shiki": "^2.0.0",
+    "ts-node": "^10.9.2"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
