@@ -39,7 +39,7 @@ function DocTreeNode({ node, currentPath, className="", Icon=null }: { node: Doc
   if (node.isDir && node.children) {
     return (
       <div>
-        <span className="flex items-center space-x-2">
+        <span className="flex items-center space-x-2 px-2 py-1 hover:bg-gray-800 rounded">
           {Icon && <Icon size={16} />}
           <button
             onClick={() => setOpen(!open)}
@@ -60,7 +60,7 @@ function DocTreeNode({ node, currentPath, className="", Icon=null }: { node: Doc
   }
 
   return (
-    <div className={isActive ? "text-blue-500 font-semibold" : ""}>
+    <div className={`px-2 py-1 hover:bg-gray-800 rounded ${isActive ? "text-blue-500 font-semibold" : ""}`}>
       <Link href={origin + toSlug(node.path)}>{node.name}</Link>
     </div>
   )
