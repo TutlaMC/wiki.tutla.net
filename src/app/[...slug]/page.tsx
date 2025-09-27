@@ -24,27 +24,27 @@ export async function generateMetadata({ params }: { params: Promise<{ slug?: st
   if (!fs.existsSync(filePath)) return {}
 
   const fileContent = fs.readFileSync(filePath, "utf8")
-  const { data } = matter(fileContent)
+  const { content, data } = matter(fileContent)
 
   const canonicalUrl = `https://wiki.tutla.net/${slugParts.join("/")}`
-
+  const firstImage = getFirstImage(content)
   return {
     title: data.title || "Tutla Wiki",
     description: data.summary || "Tutla Wiki",
-    alternates: {
-      canonical: canonicalUrl,
-    },
+    alternates: { canonical: canonicalUrl },
     openGraph: {
       title: data.title,
       description: data.summary,
       url: canonicalUrl,
       type: "article",
+      images: firstImage ? [firstImage] : undefined
     },
     twitter: {
-      card: "summary_large_image",
+      card: firstImage ? "summary_large_image" : "summary",
       title: data.title,
       description: data.summary,
-    },
+      images: firstImage ? [firstImage] : undefined
+    }
   }
 }
 
@@ -69,6 +69,14 @@ function findDocRoot(filePath: string): string | null {
     if (data.isdoc) return dir
   }
   return null
+}
+
+function getFirstImage(markdown: string, raw: boolean = true): string | null {
+  const match = markdown.match(/!\[.*?\]\((.*?)\)/)
+  if (!match) return null
+  const url = match[1]
+  if (url.startsWith("http") || raw) return url
+  return `https://wiki.tutla.net${url.startsWith("/") ? "" : "/"}${url}`
 }
 
 export default async function WikiPage({ params }: { params: Promise<{ slug?: string[] }> }) {
@@ -115,6 +123,7 @@ export default async function WikiPage({ params }: { params: Promise<{ slug?: st
       }
     }
 
+    const firstImage = getFirstImage(content)
     return (
       <div>
         <Navbar title={String(data.title)}
@@ -144,7 +153,7 @@ export default async function WikiPage({ params }: { params: Promise<{ slug?: st
           </div>
         </main>
 
-        <RightSidebar data={data} />
+        <RightSidebar image={firstImage} data={data} />
       </div>
       {/* idk chatgpt told me to put ts */} <script 
         type="application/ld+json"
