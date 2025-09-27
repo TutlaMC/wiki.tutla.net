@@ -39,7 +39,7 @@ function DocTreeNode({ node, currentPath, className="", Icon=null }: { node: Doc
   if (node.isDir && node.children) {
     return (
       <div>
-        <span className="flex items-center space-x-2 px-2 py-1 hover:bg-gray-800 rounded font-bold ${className}" onClick={() => setOpen(!open)}>
+        <span className={`flex items-center space-x-2 px-2 py-1 hover:bg-gray-800 rounded font-bold ${className}`} onClick={() => setOpen(!open)}>
           {Icon && <Icon size={16} />}
           <span className="flex justify-between items-center w-full">
             <span>{node.name}</span>

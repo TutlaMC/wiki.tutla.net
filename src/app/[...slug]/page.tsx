@@ -2,7 +2,7 @@ import fs from "fs"
 import path from "path"
 import matter from "gray-matter"
 import { getMdxSource } from "@/lib/mdx"
-import { readDocsDir, generateDocsUsingContents, DocNode } from "@/lib/docs"
+import { readDocsDir, generateDocsUsingContents} from "@/lib/docs"
 import LeftSidebar from "@/components/LeftSidebar"
 import RightSidebar from "@/components/RightSidebar"
 import MdxRenderer from "@/components/MdxRenderer"
@@ -11,10 +11,14 @@ import { Edit2 } from "lucide-react"
 
 const CONTENT_ROOT = path.join(process.cwd(), "content")
 
-export async function generateMetadata({ params }: { params: { slug?: string[] } }) {
-  params = await params
-  const slugParts = params.slug ?? ["index"]
-  const filePath = path.join(CONTENT_ROOT, ...slugParts) + ".md"
+export async function generateMetadata({ params }: { params: Promise<{ slug?: string[] }> }) {
+  const Rparams = await params
+  const slugParts = Rparams.slug ?? ["index"]
+  let filePath = path.join(CONTENT_ROOT, ...slugParts) + ".md"
+
+  if (!fs.existsSync(filePath)) filePath = path.join(CONTENT_ROOT, ...slugParts)
+  if (fs.existsSync(filePath + ".md")) filePath += ".md"
+  else filePath = path.join(filePath, "index.md")
 
   if (!fs.existsSync(filePath)) return {}
 
