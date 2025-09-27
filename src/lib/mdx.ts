@@ -49,6 +49,7 @@ export async function getMdxSource(content: string) {
                 children: [{ type: "text", value: content }],
               },
             ],
+          // eslint-disable-next-line @typescript-eslint/no-explicit-any
           } as any
         }
       } catch (error) {
