@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "next dev --turbopack",
     "build": "next build",
+    "testbuild": "next build && ts-node scripts/generate-sitemap.ts && next dev --turbopack",
     "start": "next start -p 3000",
     "lint": "next lint"
   },
