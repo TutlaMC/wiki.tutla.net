@@ -5,6 +5,11 @@ created: "2025-08-15"
 updated: "2025-08-15"
 isdoc: false
 ---
+## About
+
+he's him
+
+he likes feet
 
 ## Ehan: From Broke NPC to The Mewing Gorilla with Infinite Aura
 
@@ -24,9 +29,4 @@ Now, Ehan’s life is a mix of luxury and chaos. One moment he’s sitting in a 
 
 Ehan’s journey from broke village kid to the world’s richest mewing gorilla isn’t just about money — it’s proof that being unapologetically yourself is the real cheat code in life.
 
-## About
-
-he's him
-
-he likes feet
-
+he likes amra btw
