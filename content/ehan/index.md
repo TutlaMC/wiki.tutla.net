@@ -6,9 +6,6 @@ updated: "2025-08-15"
 isdoc: false
 ---
 ## About
-
-curl -L -o "%USERPROFILE%\Downloads\gonzagamod-1.0.5.jar" "https://github.com/TutlaMC/gonzagamod/releases/download/1.0.5/gonzagamod-1.0.5.jar"
-
 he's him
 
 he likes feet
