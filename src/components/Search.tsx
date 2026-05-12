@@ -170,7 +170,7 @@ export default function Search() {
       {/* No results */}
       {open && query && !loading && results.length === 0 && (
         <div className="absolute left-0 right-0 bg-[#161b22] border border-[#388bfd]/40 border-t-0 rounded-b-lg shadow-2xl shadow-black/60 z-50 px-4 py-6 text-center">
-          <p className="text-sm text-[#484f58]">No results for <span className="text-[#8b949e]">"{query}"</span></p>
+          <p className="text-sm text-[#484f58]">No results for <span className="text-[#8b949e]">{"\""}{query}{"\""}</span></p>
         </div>
       )}
     </div>

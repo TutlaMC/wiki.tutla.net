@@ -7,7 +7,7 @@ export default function Home() {
       {/* Header */}
       <header className="border-b border-[#21262d] bg-[#0d1117]/80 backdrop-blur sticky top-0 z-40">
         <div className="max-w-6xl mx-auto px-6 h-14 flex items-center justify-between">
-          <a href="/" className="flex items-center gap-2 no-underline">
+          <a href="#" className="flex items-center gap-2 no-underline">
             <span className="text-[#c9d1d9] font-semibold tracking-tight">Tutla Wiki</span>
           </a>
           <nav className="flex items-center gap-5 text-sm text-[#8b949e]">
