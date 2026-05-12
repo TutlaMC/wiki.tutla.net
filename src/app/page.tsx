@@ -37,11 +37,7 @@ export default function Home() {
         </div>
 
         <div className="relative z-10 w-full flex flex-col items-center text-center">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-[#30363d] bg-[#161b22] text-xs text-[#8b949e] mb-6">
-            <span className="w-1.5 h-1.5 rounded-full bg-[#3fb950]" />
-            Docs for every Tutla project
-          </div>
-          <h1 className="text-4xl sm:text-5xl md:text-6xl font-semibold tracking-tight text-[#f0f6fc] mb-4">
+          <h1 className="text-4xl sm:text-5xl md:text-6xl font-semibold tracking-tight text-[#f0f6fc] mb-4 font-serif">
             Tutla Wiki
           </h1>
           <p className="text-[#8b949e] max-w-xl mb-10 text-base sm:text-lg">
