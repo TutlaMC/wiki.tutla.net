@@ -44,7 +44,7 @@ export default function Home() {
             Search documentation for any Tutla plugin, mod, app, dev tool or library
           </p>
 
-          <Search size="lg" autoFocus />
+          <Search/>
 
           <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-2 mt-6 text-xs text-[#484f58]">
             <span>Try:</span>
